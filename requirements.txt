@@ -1,0 +1,5 @@
+requests>=2.31.0
+feedparser>=6.0.10
+newspaper4k>=0.9.3
+pandas>=2.0.0
+sqlalchemy>=2.0.0
