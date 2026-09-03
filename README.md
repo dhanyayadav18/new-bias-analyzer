@@ -1,32 +1,36 @@
-# News Bias Analyzer
+# News Framing & Bias Analysis System
 
-A multi-outlet news framing analysis system using MongoDB, Neo4j, Redis, NLP, and machine learning.
+An automated data pipeline and NLP platform designed to analyze news framing, political stance, entity omissions, and sentiment divergence across multi-outlet coverage of identical events.
 
-## Project Overview
+---
 
-This project aims to analyze how different Indian news outlets report and frame the same news event.
+## Overview
 
-The system will collect articles from multiple outlets, store and process the data, perform NLP and machine learning analysis, and present the differences through an interactive dashboard.
+Media outlets frequently cover identical events using contrasting narrative frames, selective source attributions, and entity omissions. This project provides a programmatic infrastructure to:
 
-## Planned Technologies
+1. **Ingest & Extract:** Automatically collect and parse full-text news coverage from major global and domestic Indian outlets via standardized RSS feeds.
+2. **Normalize & Persist:** Hash, deduplicate, and store structured metadata in a relational database engine.
+3. **Analyze (In Progress):** Perform Named Entity Recognition (NER), stance detection, and omission scoring across outlet pairs.
+4. **Visualize (Planned):** Present comparative bias metrics through an interactive analytical dashboard.
 
-- Python
-- MongoDB
-- Neo4j
-- Redis
-- NLP / Machine Learning
-- FastAPI
-- React
+---
 
-## Planned Analysis
+## Architecture & Data Flow
 
-- Named Entity Recognition
-- Sentiment Analysis
-- Topic Modelling
-- Semantic Similarity
-- Event Clustering
-- Cross-outlet Comparison using an LLM
-
-## Status
-
-Initial research and project architecture phase.
+```text
+   [ Domestic & Global RSS Feeds ]
+                  │
+                  ▼
+      [ Ingestion Engine ]
+   (feedparser + newspaper4k)
+                  │
+                  ▼
+       [ Deduplication Layer ]
+       (SHA-256 URL Hashing)
+                  │
+                  ▼
+       [ Persistence Layer ]
+       (SQLAlchemy + SQLite)
+                  │
+                  ▼
+   [ Auto-Retention Purge (14d) ]
