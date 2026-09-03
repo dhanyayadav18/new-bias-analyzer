@@ -1,0 +1,14 @@
+
+# Python virtual environment
+venv/
+env/
+
+# Database files (do not commit scraped raw database files)
+*.db
+*.sqlite3
+
+# Cache and local settings
+__pycache__/
+.vscode/
+.DS_Store
+.env
